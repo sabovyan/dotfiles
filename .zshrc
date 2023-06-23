@@ -74,14 +74,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  npm
   zsh-autosuggestions
   web-search
-  zsh-npm-scripts-autocomplete
   zsh-syntax-highlighting
 )
-
-# make suggestion visible
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=245'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,25 +110,18 @@ source $ZSH/oh-my-zsh.sh
 alias dcu="docker-compose up -d"
 alias dcd="docker-compose down"
 
-alias vim="nvim"
+alias vim="~/app_image/nvim.appimage"
+alias vimdiff="~/app_image/nvim.appimage -d"
+alias nvim="~/app_image/nvim.appimage"
 alias ovim="vim"
 alias ls="exa --icons"
 
 alias ucr='cd ~/projects/uc/ucraft-react'
 alias ucrc='cd ~/projects/uc/ucraft-react-clone'
+alias pn=pnpm
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_DEFAULT_OPTS='-m'
-fi
-
-# nvm settings
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-eval "$(starship init zsh)"
 
 # pnpm
 export PNPM_HOME="/home/sabovyan/.local/share/pnpm"
@@ -140,8 +130,16 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-alias pn=pnpm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+# starship
+eval "$(starship init zsh)"
+
+# gh setup 
+# for more info https://stackoverflow.com/a/30840986/13370462
+# to see gh function, checkout /usr/local/share/zsh/site-functions/_gh
+
+autoload -U compinit
+compinit -i
