@@ -1,5 +1,8 @@
 export UC_ROOT_PATH=/home/sabovyan/projects/uc/docker-server
 source /home/sabovyan/projects/uc/docker-server/config/commands
+
+export GOOGLE_APPLICATION_CREDENTIALS=/home/sabovyan/projects/uc/docker-server/sa-credentials.json
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -103,24 +106,21 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dcu="docker-compose up -d"
 alias dcd="docker-compose down"
-
-alias vim="~/app_image/nvim.appimage"
-alias vimdiff="~/app_image/nvim.appimage -d"
-alias nvim="~/app_image/nvim.appimage"
-alias ovim="vim"
-alias ls="exa --icons"
-
-alias ucr='cd ~/projects/uc/ucraft-react'
-alias ucrc='cd ~/projects/uc/ucraft-react-clone'
+alias ls="exa"
 alias pn=pnpm
+alias copy-branch="git rev-parse --abbrev-ref HEAD | tr -d '\n' | xclip -selection clipboard"
+
+alias v="~/.local/bin/nvim"
+alias vim="~/.local/bin/nvim"
+alias nvim="~/.local/bin/nvim"
+alias ovim="/usr/bin/vim"
+
+alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
 
+# fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # pnpm
@@ -129,10 +129,13 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(npm completion)"
 
 # starship
 eval "$(starship init zsh)"
@@ -140,6 +143,18 @@ eval "$(starship init zsh)"
 # gh setup 
 # for more info https://stackoverflow.com/a/30840986/13370462
 # to see gh function, checkout /usr/local/share/zsh/site-functions/_gh
-
 autoload -U compinit
 compinit -i
+
+# make fd (find-fd) available 
+PATH=$PATH:$HOME/.local/bin
+
+eval "$(zoxide init zsh)"
+
+# pnpm
+export PNPM_HOME="/home/sabovyan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
