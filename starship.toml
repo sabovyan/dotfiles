@@ -4,4 +4,3 @@
 [git_branch]
 truncation_length = 15
 truncation_symbol = '…'
-ignore_branches = ['master', 'main']
