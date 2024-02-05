@@ -108,16 +108,29 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 alias dcu="docker-compose up -d"
 alias dcd="docker-compose down"
+alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
 alias ls="exa"
 alias pn=pnpm
+
+# INFO: git aliases
 alias copy-branch="git rev-parse --abbrev-ref HEAD | tr -d '\n' | xclip -selection clipboard"
+# alias gsc="git lp | fzf | sed 's/ .*//'| xargs git show"
+
+# show git commit history for a file
+function gsc(){
+  if [ -z "$1" ]; then
+    git lp | fzf | sed 's/ .*//'| xargs git show
+  else
+    git lp "$1" | fzf | sed 's/ .*//'| xargs git show
+  fi
+}
 
 alias v="~/.local/bin/nvim"
 alias vim="~/.local/bin/nvim"
 alias nvim="~/.local/bin/nvim"
 alias ovim="/usr/bin/vim"
 
-alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
 
 # fzf 
@@ -131,22 +144,22 @@ case ":$PATH:" in
 esac
 
 
-# nvm
+# INFO: nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 eval "$(npm completion)"
 
-# starship
+# INFO:  starship
 eval "$(starship init zsh)"
 
-# gh setup 
+# INFO: gh setup 
 # for more info https://stackoverflow.com/a/30840986/13370462
 # to see gh function, checkout /usr/local/share/zsh/site-functions/_gh
 autoload -U compinit
 compinit -i
 
-# make fd (find-fd) available 
+# INFO: make fd (find-fd) available 
 PATH=$PATH:$HOME/.local/bin
 
 eval "$(zoxide init zsh)"
