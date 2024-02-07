@@ -136,12 +136,6 @@ alias ovim="/usr/bin/vim"
 # fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# pnpm
-export PNPM_HOME="/home/sabovyan/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
 
 
 # INFO: nvm
@@ -160,6 +154,7 @@ autoload -U compinit
 compinit -i
 
 # INFO: make fd (find-fd) available 
+# INFO nvim also uses this directory
 PATH=$PATH:$HOME/.local/bin
 
 eval "$(zoxide init zsh)"
