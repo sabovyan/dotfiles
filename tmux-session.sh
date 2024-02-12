@@ -31,6 +31,8 @@ function tm_start() {
     tmux send-keys -t $session:2.0 'cd packages/ds' C-m
     tmux send-keys -t $session:2.0 'npm start' C-m
 
+    sleep 1
+
     tmux send-keys -t $session:2.1 'unode' C-m
 
 
