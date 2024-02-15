@@ -131,6 +131,7 @@ alias vim="~/.local/bin/nvim"
 alias nvim="~/.local/bin/nvim"
 alias ovim="/usr/bin/vim"
 
+alias lzd="lazydocker"
 
 
 # fzf 
@@ -166,3 +167,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+
