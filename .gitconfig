@@ -1,5 +1,40 @@
 [user]
 	email = abovyan.sargis90@gmail.com
 	name = sabovyan
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
 [init]
 	defaultBranch = main
+[core]
+  pager = delta
+	editor = nvim
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+  side-by-side = true
+  line-numbers = true
+
+; merge tool
+[merge]
+	tool = "nvim"
+  conflictstyle = diff3
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+
+[diff]
+  colorMoved = default
+[alias]
+	lp = log --pretty=format:'%Cred%h%Creset -%C(bold blue)<%an>%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit
+
+[maintenance]
+	repo = /home/sabovyan/projects/uc/docker-server/project/frontend
