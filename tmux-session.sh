@@ -3,7 +3,7 @@
 
 function tm_start() {
 
-  local DIRECTORY="/home/sabovyan/projects/uc/docker-server/project/frontend/"
+  local DIRECTORY="/home/sabovyan/projects/uc/docker-server/project/frontend"
 
     
     if [ ! -d "$DIRECTORY" ]; then
@@ -27,13 +27,11 @@ function tm_start() {
     tmux new-window -t $session:2 -n "Panes"
     tmux split-window -t $session:2 -h
 
-    tmux send-keys -t $session:2.0 'unode' C-m
     tmux send-keys -t $session:2.0 'cd packages/ds' C-m
     tmux send-keys -t $session:2.0 'npm start' C-m
 
-    sleep 3
+    sleep 2
 
-    tmux send-keys -t $session:2.1 'unode' C-m
 
 
     # Select the second pane in the second window
