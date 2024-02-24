@@ -1,4 +1,8 @@
 # vim:ft=kitty
+include ./OneDark.conf
+
+term xterm-256color
+
 # Font
 
 font_family      JetBrainsMono Nerd Font Mono
@@ -15,7 +19,7 @@ tab_bar_edge		top
 # background image
 background_image background.png
 background_image_layout cscaled
-background_tint 0.95
+background_tint 0.93
 
 
 # cursor
@@ -25,6 +29,6 @@ cursor_stop_blinking_after 0
 
 
 # BEGIN_KITTY_THEME
-# Dimmed Monokai
+# One Half Dark
 include current-theme.conf
 # END_KITTY_THEME
