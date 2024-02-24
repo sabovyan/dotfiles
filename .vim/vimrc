@@ -1,0 +1,67 @@
+syntax on
+" colorscheme desert
+" colorscheme peachpuff
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set number
+set relativenumber
+
+" to hilight cursor position by line and column
+" set cursorline
+" set cursorcolumn
+
+set nocompatible
+set termguicolors	
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" tab settings
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set scrolloff=10
+
+set nowrap
+set textwidth=80
+set colorcolumn=-2
+
+" searching
+set incsearch
+set ignorecase
+set smartcase
+set showcmd
+set showmode
+set showmatch
+set hlsearch
+set history=1000
+
+" mouse
+set ttyfast
+set mouse=a
+
+
+
+set clipboard=unnamedplus
+
+
+" MAPPINGS --------------------------------------------------------------- 
+
+inoremap jj <Esc>
+
+" Set the space as the leader key.
+let mapleader = ' '
+
+" Press \\ to jump back to the last cursor position.
+nnoremap <leader>e :E<CR> 
+nnoremap <leader>\ :nohlsearch<CR>
+
+" save on <C-S> 
+" <CR> - enter
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR><Esc>
+
+
