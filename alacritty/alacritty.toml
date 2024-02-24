@@ -1,0 +1,29 @@
+# import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/oe-light.toml"]
+
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+[window]
+dimensions = { lines = 28, columns = 110 }
+dynamic_title = false
+title = "Oh, so you read the line!"
+startup_mode = "Maximized"
+
+[font]
+size = 13.0
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
+bold_italic = { family = "JetBrainsMono Nerd Font Mono", style = "Bold Italic" }
+italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
+
+[cursor]
+style = { blinking = "Never" }
+vi_mode_style = { blinking = "Never" }
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
