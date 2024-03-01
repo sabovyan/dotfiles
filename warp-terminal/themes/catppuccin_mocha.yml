@@ -7,7 +7,7 @@ details: darker
 background_image:
   # the path is relative to ~/.warp/themes/
   # the full path to the picture is: ~/.warp/themes/warp.jpg
-  path: cat.jpg
+  path: background.jpg
   # the opacity value is required and can range from 0-100
   opacity: 10
 ############################################################### SEE ABOVE
