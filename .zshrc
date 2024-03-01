@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 alias dcu="docker-compose up -d"
 alias dcd="docker-compose down"
 alias dps="docker ps --format 'table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}'"
+alias dis="docker image ls --format 'table {{.ID}}\t{{.Repository}}\t{{.Size}}'"
 
 alias ls="exa"
 alias pn=pnpm
