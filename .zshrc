@@ -1,8 +1,3 @@
-export UC_ROOT_PATH=/home/sabovyan/projects/uc/docker-server
-source /home/sabovyan/projects/uc/docker-server/config/commands
-
-export GOOGLE_APPLICATION_CREDENTIALS=/home/sabovyan/projects/uc/docker-server/sa-credentials.json
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
