@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- fonts
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 14.0
+config.font_size = 13.0
 
 config.default_cursor_style = "SteadyBar"
 
@@ -17,7 +17,7 @@ config.background = {
 	{
 		source = { File = "/home/sabovyan/.config/wezterm/image.png" },
 
-		-- hsb = { brightness = 0.1, saturation = 0.6 },
+		-- hsb = { brightness = 0.1 },
 
 		attachment = "Fixed",
 		vertical_offset = "-64px",
@@ -25,8 +25,9 @@ config.background = {
 }
 
 config.inactive_pane_hsb = {
-	saturation = 0.5,
-	brightness = 0.4,
+	saturation = 0.4,
+	brightness = 0.3,
+	hue = 0.88,
 }
 
 -- keymaps
