@@ -34,7 +34,7 @@
 [diff]
   colorMoved = default
 [alias]
-	lp = log --pretty=format:'%Cred%h%Creset -%C(bold blue)<%an>%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit
+	lp = log --pretty=format:'%Cred%h%Creset %C(bold blue)<%an>%Creset %C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit
 
 [maintenance]
 	repo = /home/sabovyan/projects/uc/docker-server/project/frontend
