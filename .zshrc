@@ -111,14 +111,13 @@ alias pn=pnpm
 
 # INFO: git aliases
 alias copy-branch="git rev-parse --abbrev-ref HEAD | tr -d '\n' | xclip -selection clipboard"
-# alias gsc="git lp | fzf | sed 's/ .*//'| xargs git show"
 
 # show git commit history for a file
 function gsc(){
   if [ -z "$1" ]; then
     git lp | fzf | sed 's/ .*//'| xargs git show
   else
-    git lp "$1" | fzf | sed 's/ .*//'| xargs git show
+    git lp --follow "$1" | fzf | sed 's/ .*//'| xargs git show
   fi
 }
 
