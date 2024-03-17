@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export GOOGLE_APPLICATION_CREDENTIALS=/home/sabovyan/projects/uc/diamond/data_volumes/sa-credentials.json
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -128,6 +129,8 @@ alias ovim="/usr/bin/vim"
 
 alias lzd="lazydocker"
 
+# project aliases
+alias uc="z /home/sabovyan/projects/uc/diamond/data_volumes/microservice_catalog/ucraft-react"
 
 # fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
