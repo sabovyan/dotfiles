@@ -1,45 +1,40 @@
 #!/bin/bash
 
 
-function tm_start() {
+function tm_start_work() {
 
-  local DIRECTORY="/home/sabovyan/projects/uc/docker-server/project/frontend"
-
+    local WORK_DIR="/home/sabovyan/projects/uc/diamond/data_volumes/microservice_catalog/ucraft-react/"
     
-    if [ ! -d "$DIRECTORY" ]; then
-      echo "$DIRECTORY does not exist."
+    if [ ! -d "$WORK_DIR" ]; then
+      echo "$WORK_DIR does not exist."
       exit 1
     fi
 
-
-    cd /home/sabovyan/projects/uc/docker-server/project/frontend/
-
-
-    local session="editor"
-
-    # Create a new tmux session
-    tmux new-session -d -s $session
-
-    # tmux send-keys -t $session:1.0 'cd /home/sabovyan/projects/uc/docker-server/project/frontend/' C-m
-    tmux send-keys -t $session:1.0 'vim' C-m
-
-    # Create the second window and split it into two panes
-    tmux new-window -t $session:2 -n "Panes"
-    tmux split-window -t $session:2 -h
-
-    tmux send-keys -t $session:2.0 'cd packages/ds' C-m
-    tmux send-keys -t $session:2.0 'npm start' C-m
-
-    sleep 2
+    cd $WORK_DIR || { echo "Failed to change directory to $WORK_DIR"; exit 1; }
 
 
+    # create three new sessions
+    tmux new-session -d -s "editor"
+    tmux new-session -d -s "server"
+    tmux new-session -d -s "local"
 
-    # Select the second pane in the second window
-    tmux select-pane -t $session:2.1
+    # open vim in the editor session
+    tmux send-keys -t editor:1 'vim' C-m
 
-    # Attach to the tmux session
-    tmux attach-session -t $session
+    # create two panes in the server session
+    tmux split-window -t server:1 -h
+
+    # cd direectory into packages/ds and start the server
+    tmux send-keys -t server:1.0 'cd packages/ds' C-m
+    tmux send-keys -t server:1.0 'yarn start' C-m
+
+    # cd into home/sabobyan/.config/nvim in the local session
+    tmux send-keys -t local:1 'cd /home/sabovyan/.config/nvim' C-m
+
+
+    tmux attach-session -t editor
+
 }
 
 
-tm_start
+tm_start_work
