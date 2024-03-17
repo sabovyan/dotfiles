@@ -46,10 +46,17 @@ set mouse=a
 
 set clipboard=unnamedplus
 
+set foldmethod=indent
+
+
+colorscheme desert
+
+" AUTOCMD ---------------------------------------------------------------- 
+:autocmd InsertEnter * set cursorline
+:autocmd InsertLeave * set nocursorline
+
 
 " MAPPINGS --------------------------------------------------------------- 
-
-inoremap jj <Esc>
 
 " Set the space as the leader key.
 let mapleader = ' '
