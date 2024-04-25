@@ -1,0 +1,11 @@
+#!/bin/bash
+
+disable_ipv6() {
+  if [[ $(uname) != "Darwin" ]]; then
+    sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+    sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+    grep "net.ipv6.conf.all.disable_ipv6=1" /etc/sysctl.conf || echo "net.ipv6.conf.all.disable_ipv6=1" | sudo tee -a /etc/sysctl.conf
+    grep "net.ipv6.conf.default.disable_ipv6" /etc/sysctl.conf || echo "net.ipv6.conf.default.disable_ipv6" | sudo tee -a /etc/sysctl.conf
+    [[ "$?" == "0" ]] && echo "Network Configurations are changed!"
+  fi
+}
