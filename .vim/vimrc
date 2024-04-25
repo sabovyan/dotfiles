@@ -43,10 +43,14 @@ set ttyfast
 set mouse=a
 
 
+set laststatus=2
+
+
 
 set clipboard=unnamedplus
 
 set foldmethod=indent
+set nofoldenable                     " Disable folding at startup.
 
 
 colorscheme desert
