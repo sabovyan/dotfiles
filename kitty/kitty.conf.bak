@@ -11,6 +11,7 @@ tab_bar_style		powerline
 tab_powerline_style	slanted
 tab_bar_edge		top
 
+enable_audio_bell no
 
 # background image
 background_image background.png
@@ -29,7 +30,7 @@ cursor_stop_blinking_after 0
   
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Sierra
 include current-theme.conf
 # END_KITTY_THEME
 
