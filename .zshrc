@@ -2,6 +2,8 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export GOOGLE_APPLICATION_CREDENTIALS=/home/sabovyan/projects/uc/diamond/data_volumes/sa-credentials.json
 
+source $HOME/.env.global
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -118,13 +120,14 @@ function gsc(){
   if [ -z "$1" ]; then
     git lp | fzf | sed 's/ .*//'| xargs git show
   else
-    git lp --follow "$1" | fzf | sed 's/ .*//'| xargs git show
+    git lp --follow "$1" | fzf |make CMAKE_BUILD_TYPE=RelWithDebInfo sed 's/ .*//'| xargs git show
   fi
 }
 
-alias v="~/.local/bin/nvim"
-alias vim="~/.local/bin/nvim"
-alias nvim="~/.local/bin/nvim"
+alias v="/usr/local/bin/nvim"
+alias vim="/usr/local/bin/nvim"
+alias nvim="/usr/local/bin/nvim"
+alias httpie_desktop="~/.local/bin/HTTPie-2024.1.2"
 alias ovim="/usr/bin/vim"
 
 alias lzd="lazydocker"
@@ -166,5 +169,5 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
-
+# Turso
+export PATH="$PATH:/home/sabovyan/.turso"
