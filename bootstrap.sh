@@ -2,6 +2,23 @@
 
 # bootstap should install all the necessary software for linux
 function bootstrap() {
+
+  # setup terminal
+  echo "Install kitty"
+  echo "Install tmux"
+  echo "install fzf"
+  echo "Installing nvim"
+
+  echo "Installing zsh..."
+  echo "Installing oh-my-zsh..."
+
+  echo "Installing starship..."
+
+
+
+
+
+
   echo "Bootstrapping..."
 
   # install nerd fonts
@@ -11,16 +28,6 @@ function bootstrap() {
 
   # - setup fonts with JetBrainsMono
   echo "Setting up fonts..."
-
-  # Install zsh
-  echo "Installing zsh..."
-
-  # install oh-my-zsh
-  echo "Installing oh-my-zsh..."
-
-  # install starship
-  echo "Installing starship..."
-#  mkdir -p ~/.config
 
 
 
