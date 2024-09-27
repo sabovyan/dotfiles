@@ -96,4 +96,7 @@ function bootstrap() {
   # setup learn
 
 
+  echo "insstall Yazi"
+
+
 }
