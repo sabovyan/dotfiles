@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export GOOGLE_APPLICATION_CREDENTIALS=/home/sabovyan/projects/uc/diamond/data_volumes/sa-credentials.json
+export GOOGLE_APPLICATION_CREDENTIALS=/home/sargis/projects/diamond/data_volumes/sa-credentials.json
 
 source $HOME/.env.global
 
@@ -127,13 +127,12 @@ function gsc(){
 alias v="/usr/local/bin/nvim"
 alias vim="/usr/local/bin/nvim"
 alias nvim="/usr/local/bin/nvim"
-alias httpie_desktop="~/.local/bin/HTTPie-2024.1.2"
 alias ovim="/usr/bin/vim"
 
 alias lzd="lazydocker"
 
 # project aliases
-alias uc="z /home/sabovyan/projects/uc/diamond/data_volumes/microservice_catalog/ucraft-react"
+alias uc="z /home/sargis/projects/diamond/data_volumes/microservice_catalog/ucraft-react"
 
 # fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
