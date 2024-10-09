@@ -170,3 +170,17 @@ esac
 
 # Turso
 export PATH="$PATH:/home/sabovyan/.turso"
+
+# Yazi
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+# to open files in nvim in yazi
+export EDITOR='nvim'
