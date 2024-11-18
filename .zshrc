@@ -133,17 +133,11 @@ alias lzd="lazydocker"
 
 # project aliases
 alias uc="z /home/sargis/projects/diamond/data_volumes/microservice_catalog/ucraft-react"
+alias ybl="yarn bootstrap:local"
 
 # fzf 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-
-# INFO: nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(npm completion)"
 
 # INFO:  starship
 eval "$(starship init zsh)"
@@ -184,3 +178,25 @@ function y() {
 
 # to open files in nvim in yazi
 export EDITOR='nvim'
+
+lazy_load_nvm() {
+  unset -f npm node nvm
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+npm() {
+  lazy_load_nvm
+  npm $@
+}
+
+node() {
+  lazy_load_nvm
+  node $@
+}
+
+nvm() {
+  lazy_load_nvm
+  nvm $@
+}
