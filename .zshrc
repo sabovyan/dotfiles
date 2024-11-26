@@ -117,11 +117,7 @@ alias copy-branch="git rev-parse --abbrev-ref HEAD | tr -d '\n' | xclip -selecti
 
 # show git commit history for a file
 function gsc(){
-  if [ -z "$1" ]; then
-    git lp | fzf | sed 's/ .*//'| xargs git show
-  else
-    git lp --follow "$1" | fzf |make CMAKE_BUILD_TYPE=RelWithDebInfo sed 's/ .*//'| xargs git show
-  fi
+  git lp --follow "$@" | fzf | sed 's/ .*//' | xargs git show
 }
 
 alias v="/usr/local/bin/nvim"
